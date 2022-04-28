@@ -14,12 +14,13 @@ def MED(S, T):
         if (S[0] == T[0]):
             return(MED(S[1:], T[1:]))
         else:
-            return(1 + min(MED(S, T[1:]), MED(S[1:], T)))
+            return(1 + min(MED(S, T[1:]), MED(S[1:], T), MED(S[1:],T[1:])))
+         #insert, delete, and substitute in the respective order
 
 
 def fast_MED(S, T, MED={}):
     # TODO -  implement memoization
-    pass
+
 
 def fast_align_MED(S, T, MED={}):
     # TODO - keep track of alignment
