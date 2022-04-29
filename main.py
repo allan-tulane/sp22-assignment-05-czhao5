@@ -14,13 +14,27 @@ def MED(S, T):
         if (S[0] == T[0]):
             return(MED(S[1:], T[1:]))
         else:
-            return(1 + min(MED(S, T[1:]), MED(S[1:], T), MED(S[1:],T[1:])))
+            return (1 + min(MED(S, T[1:]), MED(S[1:], T), MED(S[1:],T[1:])))
          #insert, delete, and substitute in the respective order
 
 
 def fast_MED(S, T, MED={}):
-    # TODO -  implement memoization
-
+  # TODO -  implement memoization
+  k = T,S
+  if not T:
+    MED[len(S),0] = len(S)
+    return len(S)
+  elif not S:
+    MED[0,len(T)] = len(T)
+    return len(T)
+  elif k in MED:
+    return MED[k]
+  elif S[0] == T[0]:
+    f = (fast_MED(S[1:], T[1:]))
+    return f
+  else:
+    return (1 + min(fast_MED(S, T[1:]), fast_MED(S[1:],T), fast_MED(S[1:],T[1:])))
+    pass
 
 def fast_align_MED(S, T, MED={}):
     # TODO - keep track of alignment
@@ -35,3 +49,4 @@ def test_align():
         S, T = test_cases[i]
         align_S, align_T = fast_align_MED(S, T)
         assert (align_S == alignments[i][0] and align_T == alignments[i][1])
+
