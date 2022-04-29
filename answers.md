@@ -18,7 +18,7 @@ Place all written answers from `assignment-05.md` here for easier grading.
 
 - **2b.**
  From the counterexample given in 2a, let n = N and c = number of coins:
-    - span is S(n) = O(n)
+    - span is S(n) = O(n * c)
     - work is W(n) = O(n * c)
 - **3a.**
  The optimal substructure property for this version of the edit distance problem and modified MED is :
